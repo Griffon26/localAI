@@ -12,6 +12,7 @@
 # Quickstart
 
 - ./build-rootfs.sh
+- ./download-model.sh
 - ./download-kernel.sh
 - ./start-firecracker.sh
 
