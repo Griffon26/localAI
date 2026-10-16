@@ -1,0 +1,8 @@
+providers:
+  ollama:
+    baseUrl: http://172.16.0.1:11434/v1
+    api: openai-completions
+    auth: none
+    discovery:
+      type: ollama
+      timeoutMs: 2000

@@ -25,14 +25,10 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 export HOME=/root
 export TERM=xterm-256color
 
-export OLLAMA_API_BASE="http://172.16.0.1:11434"
-export LITELLM_LOCAL_MODEL_COST_MAP=True
-
-
 echo "--- Custom Script Init Booted Successfully ---"
 echo "--- Oh My Pi Harness Ready ---"
 
-getty -n  -l /sbin/autologin.sh ttyS0 115200 linux
+getty -n  -l /sbin/autologin.sh ttyS0 115200 xterm-256color
 
 echo "--- /bin/bash fallback ---"
 /bin/bash
