@@ -1,5 +1,5 @@
 modelRoles:
-  default: ollama/qwen2.5-coder:7b
+  default: llama/qwen2.5-coder
 symbolPreset: unicode
 composer:
   shape: band

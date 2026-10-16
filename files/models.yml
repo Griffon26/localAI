@@ -1,8 +1,11 @@
 providers:
-  ollama:
-    baseUrl: http://172.16.0.1:11434/v1
-    api: openai-completions
+  llama:
+    baseUrl: http://172.16.0.1:9931/v1
+    api: openai-responses
     auth: none
-    discovery:
-      type: ollama
-      timeoutMs: 2000
+    models:
+      - id: qwen2.5-coder
+        name: "Qwen 2.5 Coder 14B (Local)"
+        contextWindow: 32768
+        maxTokens: 8192
+
