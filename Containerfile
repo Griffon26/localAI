@@ -17,6 +17,9 @@ RUN chmod +x /init.sh
 COPY files/autologin.sh /sbin/autologin.sh
 RUN chmod +x /sbin/autologin.sh
 
+COPY out/rust/x86_64-unknown-linux-musl/release/vsock-sync /usr/bin/vsock-sync
+RUN chmod +rx /usr/bin/vsock-sync
+
 COPY files/.profile /home/sandboxuser/.profile
 RUN mkdir /home/sandboxuser/.omp
 COPY files/config.yml /home/sandboxuser/.omp/agent/config.yml
@@ -24,7 +27,7 @@ COPY files/models.yml /home/sandboxuser/.omp/agent/models.yml
 
 RUN chown -R sandboxuser:sandboxgroup /home/sandboxuser
 
-RUN mkdir -p /mnt/repos
+RUN mkdir -p /mnt/workspace
 
 # 4. Enforce execution layout via the custom script target
 ENTRYPOINT ["/init.sh"]

@@ -1,18 +1,18 @@
 {
   "boot-source": {
-    "kernel_image_path": "vmlinux",
+    "kernel_image_path": "out/vmlinux",
     "boot_args": "console=ttyS0 reboot=k panic=1 pci=off nomodules init=/init.sh ip=172.16.0.2::172.16.0.1:255.255.255.0::eth0:off"
   },
   "drives": [
     {
       "drive_id": "rootfs",
-      "path_on_host": "rootfs.ext4",
+      "path_on_host": "out/rootfs.ext4",
       "is_root_device": true,
       "is_read_only": true
     },
     {
-      "drive_id": "repos",
-      "path_on_host": "repos.ext4",
+      "drive_id": "workspace",
+      "path_on_host": "out/workspace.ext4",
       "is_root_device": false,
       "is_read_only": false
     }
@@ -27,5 +27,10 @@
       "iface_id": "eth0",
       "host_dev_name": "tap0"
     }
-  ]
+  ],
+  "vsock": {
+    "vsock_id": "vsock0",
+    "guest_cid": 3,
+    "uds_path": "out/firecracker-sockets/vsock.sock"
+  }
 }

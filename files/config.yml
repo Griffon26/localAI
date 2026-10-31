@@ -1,5 +1,5 @@
 modelRoles:
-  default: llama/qwen2.5-coder
+  default: llama/qwen-local
 symbolPreset: unicode
 composer:
   shape: band

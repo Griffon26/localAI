@@ -25,6 +25,5 @@ test -n "$KERNEL_KEY" || {
   exit 1
 }
 
-wget -O vmlinux "$S3/$KERNEL_KEY"
+wget -O out/vmlinux "$S3/$KERNEL_KEY"
 
-file vmlinux

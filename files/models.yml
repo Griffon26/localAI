@@ -4,8 +4,8 @@ providers:
     api: openai-responses
     auth: none
     models:
-      - id: qwen2.5-coder
-        name: "Qwen 2.5 Coder 14B (Local)"
-        contextWindow: 32768
+      - id: qwen-local
+        name: "Qwen"
+        contextWindow: 65536
         maxTokens: 8192
 

@@ -1,0 +1,14 @@
+[package]
+name = "vsock-sync"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "vsock-sync"
+path = "src/main.rs"
+
+[dependencies]
+tokio = { version = "1.38", features = ["full"] }
+tokio-vsock = "0.6" # Provides AF_VSOCK async support for Linux
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }

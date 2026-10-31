@@ -13,8 +13,8 @@ echo "--- Setup overlayfs ---"
 mkdir -p /tmp/upper /tmp/work
 mount -t overlay overlay -o lowerdir=/home/sandboxuser,upperdir=/tmp/upper,workdir=/tmp/work /home/sandboxuser
 
-echo "--- Mount repos ---"
-mount /dev/vdb /mnt/repos
+echo "--- Mount workspace ---"
+mount /dev/vdb /mnt/workspace
 
 # Fix ownership so sandboxuser can write history files, git config, and code
 chown -R sandboxuser:sandboxgroup /home/sandboxuser

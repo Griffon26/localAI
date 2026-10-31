@@ -1,3 +1,10 @@
 #!/bin/bash
-wget https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct-GGUF/resolve/main/qwen2.5-coder-14b-instruct-q4_k_m.gguf
+
+cd out
+
+[ -f "selected_model.sh" ] || { echo "Run select_model.sh first" >&2; exit -1; }
+
+source "selected_model.sh"
+
+wget "${MODEL_URL}"
 

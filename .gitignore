@@ -1,4 +1,1 @@
-*.ext4
-*.gguf
-rootfs.tar
-vmlinux
+out/
