@@ -6,6 +6,6 @@ providers:
     models:
       - id: qwen-local
         name: "Qwen"
-        contextWindow: 65536
+        contextWindow: NNNN
         maxTokens: 8192
 

@@ -3,7 +3,7 @@ set -euo pipefail
 
 mkdir -p out
 
-OUTPUT_FILE="out/selected_model.sh"
+OUTPUT_FILE="out/selected-model.sh"
 
 declare -A models
 
@@ -11,7 +11,12 @@ declare -A models
 models["Qwen3-Coder-30B-A3B-Instruct-UD-Q4_K_XL"]='
   export MODEL_FILE="Qwen3-Coder-30B-A3B-Instruct-UD-Q4_K_XL.gguf"
   export MODEL_URL="https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF/resolve/main/Qwen3-Coder-30B-A3B-Instruct-UD-Q4_K_XL.gguf"
-  export MODEL_OPTIONS="-c 65536 -ngl 34 -ctk q8_0 -ctv q8_0"
+  export MODEL_OPTIONS="-c 65536 -ngl 34 -b 1024 -ub 256 -ctk q8_0 -ctv q8_0 --spec-type ngram-simple --spec-draft-n-max 4"
+'
+models["Qwen3-Coder-30B-A3B-Instruct-UD-IQ3_XXS"]='
+  export MODEL_FILE="Qwen3-Coder-30B-A3B-Instruct-UD-IQ3_XXS.gguf"
+  export MODEL_URL="https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF/resolve/main/Qwen3-Coder-30B-A3B-Instruct-UD-IQ3_XXS.gguf"
+  export MODEL_OPTIONS="-c 45000 -ngl 99 -b 1024 -ub 256 -ctk q8_0 -ctv q8_0 --spec-type ngram-simple --spec-draft-n-max 4"
 '
 models["qwen2.5-coder-14b-instruct-q4_k_m"]='
   export MODEL_FILE="qwen2.5-coder-14b-instruct-q4_k_m.gguf"

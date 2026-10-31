@@ -27,7 +27,7 @@ RUN chmod +rx /usr/bin/vsock-sync
 COPY files/.profile /home/sandboxuser/.profile
 RUN mkdir /home/sandboxuser/.omp
 COPY files/config.yml /home/sandboxuser/.omp/agent/config.yml
-COPY files/models.yml /home/sandboxuser/.omp/agent/models.yml
+COPY files/models.yml.template /home/sandboxuser/.omp/agent/models.yml.template
 
 RUN chown -R sandboxuser:sandboxgroup /home/sandboxuser
 

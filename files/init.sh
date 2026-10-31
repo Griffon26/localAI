@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+set -euo pipefail
 
 echo "--- Mount filesystems ---"
 mount -t proc proc /proc
@@ -23,6 +25,15 @@ echo "--- Set env vars ---"
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 export HOME=/root
 export TERM=xterm-256color
+
+echo "--- Getting context size from llama.cpp props endpoint ---"
+CONTEXT_SIZE=$(curl -s http://172.16.0.1:9931/props | grep -o '"n_ctx":[^,}]*'|cut -d':' -f2)
+echo "Context size: ${CONTEXT_SIZE}"
+
+echo "--- Filling in context size in models.yml template ---"
+YAML_DIR="/home/sandboxuser/.omp/agent"
+cat "${YAML_DIR}/models.yml.template" | sed -e "s/contextWindow: NNNN/contextWindow: ${CONTEXT_SIZE}/" > "${YAML_DIR}/models.yml"
+chown sandboxuser:sandboxgroup "${YAML_DIR}/models.yml"
 
 echo "--- Custom Script Init Booted Successfully ---"
 echo "--- Oh My Pi Harness Ready ---"
