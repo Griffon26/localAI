@@ -11,13 +11,12 @@ mount -t tmpfs -o size=1G tmpfs /tmp
 
 echo "--- Setup overlayfs ---"
 mkdir -p /tmp/upper /tmp/work
+chown sandboxuser:sandboxgroup /tmp/upper /tmp/work
 mount -t overlay overlay -o lowerdir=/home/sandboxuser,upperdir=/tmp/upper,workdir=/tmp/work /home/sandboxuser
 
 echo "--- Mount workspace ---"
 mount /dev/vdb /mnt/workspace
-
-# Fix ownership so sandboxuser can write history files, git config, and code
-chown -R sandboxuser:sandboxgroup /home/sandboxuser
+chown -R sandboxuser:sandboxgroup /mnt/workspace
 
 echo "--- Set env vars ---"
 # Configure terminal session

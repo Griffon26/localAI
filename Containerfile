@@ -2,7 +2,11 @@
 FROM alpine:3.20
 
 # 1. Install necessary core dependencies for networking and OMP runtime
-RUN apk add --no-cache curl bash nodejs npm iproute2 python3
+RUN apk add --no-cache curl bash nodejs npm iproute2 python3 tzdata
+
+ARG HOST_TZ
+RUN test -f "/usr/share/zoneinfo/${HOST_TZ}" && \
+    ln -s "/usr/share/zoneinfo/${HOST_TZ}" /etc/localtime
 
 RUN addgroup -g 1001 sandboxgroup && \
     adduser -u 1001 -G sandboxgroup -h /home/sandboxuser -s /bin/bash -D sandboxuser
