@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 ARCH="$(uname -m)"
 S3="https://s3.amazonaws.com/spec.ccfc.min"

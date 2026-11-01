@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 [ -f "out/selected-model.sh" ] || { echo "Run select-model.sh first" >&2; exit -1; }
 

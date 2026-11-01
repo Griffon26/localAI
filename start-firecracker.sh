@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -euo pipefail
 
 [ -f "out/vmlinux" ] || { echo "Run download-kernel.sh first" >&2; exit -1; }

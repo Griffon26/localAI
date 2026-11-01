@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -euo pipefail
 
 [ -d "out/rust" ] || { echo "Run build-vsock-sync.sh first" >&2; exit -1; }
 
