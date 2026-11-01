@@ -1,6 +1,7 @@
 # Prerequisites
 
 - installed packages:
+  - curl
   - e2fsprogs (built with libarchive support)
   - podman
   - firecracker
